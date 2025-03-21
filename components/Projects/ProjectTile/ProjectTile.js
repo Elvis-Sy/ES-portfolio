@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 import VanillaTilt from "vanilla-tilt";
 import styles from "./ProjectTile.module.scss";
@@ -11,17 +11,22 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
     additionalClasses = classes;
   }
 
-  const options = {
-    max: 10,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.2,
-    gyroscope: false,
-  };
+  const options = useMemo(
+    () => ({
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+      gyroscope: false,
+    }),
+    []
+  );
 
   useEffect(() => {
-    VanillaTilt.init(projectCard.current, options);
-  }, [projectCard]);
+    if (projectCard.current) {
+      VanillaTilt.init(projectCard.current, options);
+    }
+  }, [options]);
 
   return (
     <a

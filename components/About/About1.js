@@ -97,7 +97,7 @@ const About1 = ({ clientHeight }) => {
                   Je suis un développeur dévoué qui adore relever les défis et étendre ses compétences sur différents projets.{" "}
                 </span>
                 <span className="about-2 leading-tight">
-                Ma curiosité me permet de m'adapter rapidement aux nouvelles tendances pour optimiser mes développements.{" "}
+                Ma curiosité me permet de m&apos;adapter rapidement aux nouvelles tendances pour optimiser mes développements.{" "}
                 </span>
                 <span className="about-3 leading-tight">
                 Ainsi, je m&apos;efforce de créer des solutions performants, évolutives et adaptées aux utilisateurs.{" "}
