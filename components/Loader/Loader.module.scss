@@ -1,0 +1,208 @@
+.screen {
+  background: black;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.initials {
+  display: flex;
+  gap: 0.5rem;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.letterE {
+  position: relative;
+  width: 40px;
+  height: 60px;
+
+  .vertical {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 0;
+    background: #2ecc71;
+    animation: drawVertical 1.5s ease forwards;
+  }
+
+  .horizontal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 6px;
+    background: #2ecc71;
+    animation: drawHorizontal 1.5s ease forwards 0.3s;
+  }
+
+  .middle {
+    position: absolute;
+    left: 0;
+    top: 27px;
+    width: 0;
+    height: 6px;
+    background: #2ecc71;
+    animation: drawMiddle 1.5s ease forwards 0.6s;
+  }
+
+  .bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    background: #2ecc71;
+    animation: drawHorizontal 1.5s ease forwards 0.9s;
+  }
+}
+
+.letterS {
+  position: relative;
+  width: 40px;
+  height: 60px;
+
+  .curve {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 30px;
+      border: 6px solid #2ecc71;
+      border-right: 0;
+      border-bottom: 0;
+      border-radius: 20px 0 0 0;
+      transform-origin: bottom right;
+      animation: drawTopS 1.5s ease forwards 1.2s;
+    }
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 30px;
+      border: 6px solid #2ecc71;
+      border-left: 0;
+      border-top: 0;
+      border-radius: 0 0 20px 0;
+      transform-origin: top left;
+      animation: drawBottomS 1.5s ease forwards 1.5s;
+    }
+  }
+}
+
+.progress {
+  width: 9rem;
+  border-radius: 0.5rem;
+  height: 0.3rem;
+  background-color: rgba(46, 204, 113, 0.2);
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    display: block;
+    border-radius: 0.5rem;
+    height: 0.3rem;
+    width: 100%;
+    left: -100%;
+    background: #2ecc71;
+    animation: load 1.7s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes drawVertical {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 60px;
+    opacity: 1;
+  }
+}
+
+@keyframes drawHorizontal {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes drawMiddle {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 25px;
+    opacity: 1;
+  }
+}
+
+@keyframes drawTopS {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawBottomS {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes load {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
