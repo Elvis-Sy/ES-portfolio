@@ -71,7 +71,7 @@ const Work = ({ isDesktop }) => {
     <section
       ref={sectionRef}
       id={MENULINKS[3].ref}
-      className="w-full relative select-none xs:mt-40 sm:mt-72 mb-96"
+      className="w-full relative select-none mt-32 xs:mt-40 sm:mt-72 mb-96"
     >
       <Image
         src="/left-pattern.svg"
