@@ -1,60 +1,92 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Howl } from "howler";
 import SoundBar from "./SoundBar/SoundBar";
+import Menu from "./Menu/Menu";
 
 const multiPop = new Howl({
   src: ["/sounds/multi-pop.mp3"],
 });
 
-const Header = ({ children }) => {
+const Header = () => {
   const inputRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleClick = useCallback((e) => {
-    if (e.target.checked) multiPop.play();
-  }, []);
-
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === "Escape" && inputRef.current?.checked) {
-      inputRef.current.checked = false;
+  const toggleMenu = useCallback(() => {
+    const checked = !menuOpen;
+    setMenuOpen(checked);
+    if (checked) {
+      document.body.classList.add("overflow-hidden");
+      multiPop.play();
+    } else {
+      document.body.classList.remove("overflow-hidden");
     }
+  }, [menuOpen]);
+
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    document.body.classList.remove("overflow-hidden");
   }, []);
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && menuOpen) {
+        closeMenu();
+      }
     };
-  }, [handleKeyDown]);
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen, closeMenu]);
 
   return (
-    <nav className="w-full fixed top-0 py-8 z-50 select-none bg-gradient-to-b from-black shadow-black transition-all duration-300">
-      <div className="flex justify-between section-container">
+    <nav className="w-full fixed top-0 py-6 z-50 bg-gradient-to-b from-black to-transparent">
+      <div className="section-container flex justify-between items-center">
         <a href="#home" className="link">
-          <Image
-            src="/logo.svg"
-            alt="Logo - Shubh Porwal"
-            width={25}
-            height={25}
-          />
+          <Image src="/logo.svg" alt="Logo" width={25} height={25} />
         </a>
-        <div className="outer-menu relative flex items-center gap-8 z-[1]">
-          <SoundBar />
-          <input
-            ref={inputRef}
-            aria-labelledby="menu"
-            aria-label="menu"
-            className="checkbox-toggle link absolute top-0 right-0 w-6 h-6 opacity-0"
-            type="checkbox"
-            onClick={handleClick}
-          />
-          <div className="hamburger w-6 h-6 flex items-center justify-center">
-            <div className="relative flex-none w-full bg-white duration-300 flex items-center justify-center" />
+
+        {/* Desktop Menu */}
+        <div className="outer-menu hidden md:flex items-center gap-8">
+          <Menu />
+          <div className="ml-auto mb-2">
+            <SoundBar />
           </div>
-          {children}
+        </div>
+
+        {/* Mobile Menu */}
+        <div className="outer-menu md:hidden flex items-center gap-4 relative z-50">
+          <SoundBar />
+          <button
+            onClick={toggleMenu}
+            className="z-50 relative w-6 h-6 flex flex-col justify-between items-center cursor-pointer"
+            aria-label="Menu"
+          >
+            <span
+              className={`block h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
+                menuOpen ? "rotate-45 mt-[4.5px] translate-y-1.5" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-white transition-all duration-300 ease-in-out ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
+                menuOpen ? "-rotate-45 mb-[4.5px] -translate-y-1.5" : ""
+              }`}
+            />
+          </button> 
         </div>
       </div>
+
+      {/* Mobile Fullscreen Menu */}
+      {menuOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-95 flex flex-col items-center justify-center z-40 transition-all duration-300">
+          <Menu isMobile onLinkClick={closeMenu} />
+        </div>
+      )}
     </nav>
   );
 };

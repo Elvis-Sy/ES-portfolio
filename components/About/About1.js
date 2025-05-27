@@ -59,7 +59,7 @@ const About1 = ({ clientHeight }) => {
     <section ref={sectionRef} id={MENULINKS[0].ref} className="w-full relative select-none">
       <div
         className={`${
-          clientHeight > 650 ? "" : "pt-40 pb-40"
+          clientHeight > 650 ? "" : "pt-10 pb-40"
         } section-container`}
       >
         <div className="flex flex-col mb-8">
