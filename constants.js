@@ -69,23 +69,36 @@ export const SOCIAL_LINKS = [
 
 export const SKILLS = {
   languagesAndTools: [
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "nodejs",
-    "vite",
-    "figma",
+    { name: "java", level: "55%" },
+    { name: "html", level: "90%" },
+    { name: "css", level: "75%" },
+    { name: "javascript", level: "80%" },
+    { name: "typescript", level: "60%" },
+    { name: "git", level: "50%" },
+    { name: "figma", level: "45%" },
   ],
   librariesAndFrameworks: [
-    "react",
-    "nextjs",
-    "tailwindcss",
-    "chakra-ui",
+    { name: "react", level: "80%" },
+    { name: "nextjs", level: "75%" },
+    { name: "angular", level: "40%" },
+    { name: "nestjs", level: "45%" },
+    { name: "spring", level: "60%" },
+    { name: "nodejs", level: "85%" },
+    { name: "tailwindcss", level: "70%" },
+    { name: "vite", level: "60%" },
   ],
-  databases: ["mysql", "mongodb"],
-  other: ["git"],
+  databases: [
+    { name: "mysql", level: "75%" },
+    { name: "mongodb", level: "60%" },
+    { name: "postgresql", level: "70%" },
+    { name: "supabase", level: "60%" },
+  ],
+  other: [
+    { name: "kubernetes", level: "40%" },
+    { name: "docker", level: "40%" },
+  ],
 };
+
 
 export const PROJECTS = [
   {

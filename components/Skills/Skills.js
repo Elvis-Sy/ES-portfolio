@@ -1,12 +1,55 @@
 /* eslint-disable @next/next/no-img-element */
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { MENULINKS, SKILLS } from "../../constants";
 
+gsap.registerPlugin(ScrollTrigger);
+
+const SkillItem = ({ skill, isActive, onToggle }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  return (
+    <div
+      className="relative group w-fit cursor-pointer"
+      onClick={() => isMobile && onToggle()}
+    >
+      <Image
+        src={`/skills/${skill.name}.svg`}
+        alt={skill.name}
+        width={50}
+        height={50}
+        className="transition-transform duration-300 group-hover:scale-110"
+      />
+      {skill.level && (
+        <span
+          className={`absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-white text-black text-base font-semibold h-10 w-10 pt-1 flex items-center justify-center rounded-full shadow-md z-10 transition-opacity duration-300
+            ${
+              isMobile
+                ? isActive
+                  ? "opacity-100"
+                  : "opacity-0"
+                : "opacity-0 group-hover:opacity-100"
+            }`}
+        >
+          {skill.level}
+        </span>
+      )}
+    </div>
+  );
+};
+
 const Skills = () => {
   const sectionRef = useRef(null);
+  const [activeSkill, setActiveSkill] = useState(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -29,6 +72,18 @@ const Skills = () => {
 
     return () => ctx.revert();
   }, []);
+
+  const renderSkills = (skillsArray) =>
+    skillsArray.map((skill) => (
+      <SkillItem
+        key={skill.name}
+        skill={skill}
+        isActive={activeSkill === skill.name}
+        onToggle={() =>
+          setActiveSkill((prev) => (prev === skill.name ? null : skill.name))
+        }
+      />
+    ));
 
   return (
     <section
@@ -54,56 +109,35 @@ const Skills = () => {
               Mes Skills
             </h1>
             <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-              J&apos;aime explorer de nouvelles technologies et perfectionner mes compétences techniques.{" "}
+              J&apos;aime explorer de nouvelles technologies et perfectionner mes compétences techniques.
             </h2>
           </div>
+
           <div className="mt-10">
             <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 staggered-reveal">
               LANGAGES ET OUTILS
             </h3>
             <div className="flex items-center flex-wrap gap-6 staggered-reveal">
-              {SKILLS.languagesAndTools.map((skill) => (
-                <Image
-                  key={skill}
-                  src={`/skills/${skill}.svg`}
-                  alt={skill}
-                  width={50}
-                  height={50}
-                />
-              ))}
+              {renderSkills(SKILLS.languagesAndTools)}
             </div>
           </div>
+
           <div className="mt-10">
             <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 staggered-reveal">
-              BIBLIOTHEQUES ET FRAMEWORKS
+              BIBLIOTHÈQUES ET FRAMEWORKS
             </h3>
             <div className="flex flex-wrap gap-6 transform-gpu staggered-reveal">
-              {SKILLS.librariesAndFrameworks.map((skill) => (
-                <Image
-                  key={skill}
-                  src={`/skills/${skill}.svg`}
-                  alt={skill}
-                  width={50}
-                  height={50}
-                />
-              ))}
+              {renderSkills(SKILLS.librariesAndFrameworks)}
             </div>
           </div>
+
           <div className="flex flex-wrap mt-10">
             <div className="mr-16 xs:mr-20 mb-6 staggered-reveal">
               <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4">
-                BASES DE DONNEES
+                BASES DE DONNÉES
               </h3>
               <div className="flex flex-wrap gap-6 transform-gpu">
-                {SKILLS.databases.map((skill) => (
-                  <Image
-                    key={skill}
-                    src={`/skills/${skill}.svg`}
-                    alt={skill}
-                    width={50}
-                    height={50}
-                  />
-                ))}
+                {renderSkills(SKILLS.databases)}
               </div>
             </div>
             <div className="staggered-reveal">
@@ -111,15 +145,7 @@ const Skills = () => {
                 AUTRES
               </h3>
               <div className="flex flex-wrap gap-6 transform-gpu">
-                {SKILLS.other.map((skill) => (
-                  <Image
-                    key={skill}
-                    src={`/skills/${skill}.svg`}
-                    alt={skill}
-                    width={50}
-                    height={50}
-                  />
-                ))}
+                {renderSkills(SKILLS.other)}
               </div>
             </div>
           </div>
