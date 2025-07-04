@@ -7,6 +7,7 @@ emailjs.init({
   },
 });
 
+
 const mail = ({ name, email, message }) =>
   emailjs.send(
     process.env.NEXT_PUBLIC_SERVICE_ID,
