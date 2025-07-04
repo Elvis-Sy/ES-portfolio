@@ -1,5 +1,5 @@
 export const METADATA = {
-  author: "SP",
+  author: "ES",
   title: "ES | Portfolio",
   description:
     "Shubh Porwal is a passionate Frontend Engineer, dedicated to crafting aesthetic and modern apps that captivate and engage users.",
