@@ -40,7 +40,7 @@ const Header = () => {
   }, [menuOpen, closeMenu]);
 
   return (
-    <nav className="w-full fixed top-0 py-6 z-50 bg-gradient-to-b from-black to-transparent">
+    <nav className="w-full fixed top-0 py-6 z-50 backdrop-blur-[2px] bg-gradient-to-b from-black to-transparent">
       <div className="section-container flex justify-between items-center">
         <a href="#home" className="link">
           <Image src="/logo.svg" alt="Logo" width={25} height={25} />

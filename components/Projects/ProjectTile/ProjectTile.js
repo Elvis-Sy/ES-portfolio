@@ -4,7 +4,7 @@ import VanillaTilt from "vanilla-tilt";
 import styles from "./ProjectTile.module.scss";
 
 const ProjectTile = ({ project, classes, isDesktop }) => {
-  const { name, image, blurImage, description, gradient, url, tech } = project;
+  const { name, image, blurImage, description, gradient, url, git, tech } = project;
   const projectCard = useRef(null);
   let additionalClasses = "";
   if (classes) {
@@ -42,7 +42,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
       }}
     >
       <div
-        className={`h-[25rem] w-[38rem] bg-black ${styles.ProjectTile} rounded-3xl relative p-6 flex flex-col justify-between max-w-full`}
+        className={`h-[25rem] w-[37rem] bg-black ${styles.ProjectTile} rounded-3xl relative p-6 flex flex-col justify-between max-w-full`}
         style={{
           background: `linear-gradient(90deg, ${gradient[0]} 0%, ${gradient[1]} 100%)`,
         }}
@@ -85,10 +85,10 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
             ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
           `}
         >
-          <div className="flex flex-col pb-8">
+          <div className="flex flex-col pb-8 mb-10">
             {project.tech.map((el, i) => (
               <Image
-                className={`${i % 2 === 0 && "ml-16"} mb-4`}
+                className={`${i % 2 === 0 && "ml-8"} mb-6`}
                 src={`/projects/tech/${el}.svg`}
                 alt={el}
                 height={45}
@@ -103,6 +103,24 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
           style={{ transform: "translateZ(0.8rem)" }}
         >
           {description}
+          <h3
+            className="flex gap-2 text-sm items-center justify-center px-4 py-2 rounded-full bg-black/50 w-fit cursor-pointer transition duration-200 hover:bg-black/70 active:scale-95"
+          >
+            <Image
+              src="/chaine.png"
+              alt="Link"
+              width={15}
+              height={15}
+              className="transition-transform duration-200 group-hover:scale-110"
+            />
+            <a
+              href={git}
+              className="text-white underline-offset-2 hover:underline transition-colors duration-200"
+            >
+              Lien Github
+            </a>
+          </h3>
+
         </h2>
       </div>
     </a>

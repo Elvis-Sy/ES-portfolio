@@ -7,10 +7,11 @@ const Loader = () => {
         <div className={styles.initials}>
           <div className={styles.letterE}>
             <span className={styles.vertical} />
-            <span className={styles.horizontal} />
-            <span className={styles.middle} />
-            <span className={styles.bottom} />
+            <span className={styles.horizontalTop} />
+            <span className={styles.horizontalMiddle} />
+            <span className={styles.horizontalBottom} />
           </div>
+
           <div className={styles.letterS}>
             <span className={styles.curve} />
           </div>

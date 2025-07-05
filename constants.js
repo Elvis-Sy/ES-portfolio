@@ -102,41 +102,25 @@ export const SKILLS = {
 
 export const PROJECTS = [
   {
-    name: "Airbnb",
-    image: "/projects/airbnb.webp",
-    blurImage: "/projects/blur/airbnb-blur.webp",
-    description: "Airbnb UI clone using NextJS + Tailwind CSS 🛏️",
-    gradient: ["#F14658", "#DC2537"],
-    url: "https://shubh73-airbnb.vercel.app/",
-    tech: ["react", "nextjs", "tailwindcss", "mapbox"],
-  },
-  {
-    name: "Medium",
-    image: "/projects/medium.webp",
-    blurImage: "/projects/blur/medium-blur.webp",
-    description: "Medium UI clone using NextJS + Tailwind CSS ✍🏻",
-    gradient: ["#FFA62E", "#EA4D2C"],
-    url: "https://shubh73-medium.vercel.app/",
-    tech: ["typescript", "react", "nextjs", "tailwindcss", "sanity.io"],
+    name: "FlotMax",
+    image: "/projects/flotmax.jpeg",
+    blurImage: "/projects/blur/flotmax-blur.jpg",
+    description: "Application aidant pour les problèmes de flot maximal✍🏻",
+    gradient: ["#1e3a8a", "#3b0764"],
+    url: "https://flot-maximal.vercel.app/",
+    git: "https://github.com/Elvis-Sy/FlotMaximal",
+    tech: ["typescript", "react", "nextjs", "tailwindcss"],
   },
   {
     name: "Inshorts",
-    image: "/projects/inshorts.webp",
-    blurImage: "/projects/blur/airbnb-blur.webp",
+    image: "/projects/flotmax.jpeg",
+    blurImage: "/projects/blur/flotmax-blur.jpg",
     description:
       "Conversational Voice Controlled React News Application using Alan AI 🎙",
     gradient: ["#000066", "#6699FF"],
     url: "https://shubh73-inshorts.netlify.app/",
+    git: "",
     tech: ["react", "chakra-ui", "alan"],
-  },
-  {
-    name: "Tesla",
-    image: "/projects/tesla.webp",
-    blurImage: "/projects/blur/tesla-blur.webp",
-    description: "A Tesla React Native App 🏎️",
-    gradient: ["#142D46", "#2E4964"],
-    url: "https://github.com/shubh73/tesla",
-    tech: ["react"],
   },
 ];
 
