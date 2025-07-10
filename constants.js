@@ -111,129 +111,177 @@ export const PROJECTS = [
     git: "https://github.com/Elvis-Sy/FlotMaximal",
     tech: ["typescript", "react", "nextjs", "tailwindcss"],
   },
-  {
-    name: "Inshorts",
-    image: "/projects/flotmax.jpeg",
-    blurImage: "/projects/blur/flotmax-blur.jpg",
-    description:
-      "Conversational Voice Controlled React News Application using Alan AI 🎙",
-    gradient: ["#000066", "#6699FF"],
-    url: "https://shubh73-inshorts.netlify.app/",
-    git: "",
-    tech: ["react", "chakra-ui", "alan"],
-  },
+
 ];
 
-// export const WORK = [
-//   {
-//     id: 1,
-//     company: "Dukaan",
-//     title: "Frontend Developer",
-//     location: "Bangalore, Karnataka",
-//     range: "December - Current",
-//     responsibilities: [
-//       "Led creation of a captivating cross-platform e-commerce solution.",
-//       "Enhanced UX with gamification and personalized push notifications ensuring an ever-improving shopping journey.",
-//       "The app boasts a DAU base of 32k and an extensive MAU count of 180k.",
-//     ],
-//     url: "https://mydukaan.io/",
-//     video: "/work/dukaan.mp4",
-//   },
-//   {
-//     id: 2,
-//     company: "Aviate",
-//     title: "Frontend Developer Intern",
-//     location: "Goa",
-//     range: "May - October 2022",
-//     responsibilities: [
-//       "Built their flagship product Q-Rate, a voice-based applicant screening platform.",
-//       "Developed pixel-perfect responsive web applications achieving daily traffic of 1000-2000 users.",
-//       "Successfully rolled out an error-logging and bug reporting system that cut user-reported bugs by 30%.",
-//     ],
-//     url: "https://www.aviate.jobs/",
-//     video: "/work/aviate.mp4",
-//   },
-//   {
-//     id: 3,
-//     company: "Spacenos",
-//     title: "Web Developer Intern",
-//     location: "Bangalore, Karnataka",
-//     range: "September - December 2021",
-//     responsibilities: [
-//       "Led the Full Stack revamp on the Admin Portal.",
-//       "Developed app integration with REST APIs, Google Maps, User Auth, Stripe and other libraries.",
-//       "Implemented CRUD features for all the services and providers.",
-//     ],
-//     url: "https://spacenos.com/",
-//     video: "/work/spacenos.mp4",
-//   },
-// ];
-
 export const WORK_CONTENTS = {
-  DUKAAN: [
+  DIPLOME: [
     {
-      title: "Dukaan",
-      description:
-        "Dukaan is a platform that enables businesses to launch their online stores at ease.",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Revolutionizing commerce, one click at a time
-        </div>
+      year: "2025",
+      title: (
+        <h2 className="text-white text-xl font-semibold">
+          Configurer un environnement dev applicatif sur Google Cloud
+        </h2>
       ),
+      description: (
+        <div className="flex flex-col gap-4 text-base max-w-md">
+          <p className="text-white">
+            Cela consiste à créer et gérer des ressources cloud (VM, bases de données, conteneurs){" "}
+            pour développer, tester et déployer des applications de manière sécurisée et scalable
+          </p>
+      
+          <p>
+            <span className="font-semibold">Type :</span>{" "}
+            <span className="text-white">Badge</span>
+          </p>
+
+          <p>
+            <span className="font-semibold">Skills :</span>{" "}
+            <span className="text-white">#Cloud Storage, #IAM, #Cloud Functions, #Pub/sub</span>
+          </p>
+
+          <p>
+            <button
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1 rounded-md bg-white text-black font-semibold"
+            >
+              <a 
+                href="https://www.credly.com/badges/fb48f49c-80b3-490e-8e26-72852c2c3d03/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-105 hover:shadow-lg active:scale-95"
+              >
+                Consulter
+              </a>
+            </button>
+
+          </p>
+        </div>
+      ),      
+      bgImage: "url('https://images.credly.com/size/340x340/images/42326d44-14ff-4eda-b9c5-7d8f12919253/image.png')",
     },
     {
-      title: "Transformation",
-      description:
-        "Since 2023, the Dukaan Seller Dashboard struggled with technical issues and a broken user experience due to accumulated technical debt. Leading a team of two junior developers, we migrated the dashboard from CSR to SSR, redesigned the UI, and overhauled the codebase in the process. This resolved the technical debt and vastly improved the user experience, making it Dukaan's largest and most impactful migration.",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Senior Frontend Engineer
-        </div>
+      year: "2024",
+      title: (
+        <h2 className="text-white text-xl font-semibold">
+          Licence en informatique
+        </h2>
       ),
-    },
-    {
-      title: "Evolution",
-      description:
-        "Recognizing the need for improved performance and user engagement, I spearheaded the migration of the Dukaan App from native to React-Native for iOS and Android platforms. This strategic move led to a X% enhancement in app performance and a Y% boost in user engagement, representing a significant milestone in the app's evolution.",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Frontend Engineer
+      description: (
+        <div className="flex flex-col gap-4 text-base max-w-md">
+          <p>
+            <span className="font-semibold">Parcours :</span>{" "}
+            <span className="text-white">
+              Génie logiciel et Base de données
+            </span>
+          </p>
+      
+          <p>
+            <span className="font-semibold">Université :</span>{" "}
+            <span className="text-white">Ecole Nationale d&apos;Informatique</span>
+          </p>
+
+          <p>
+            Ce diplôme représente une étape clé dans mon parcours professionnel et me prépare efficacement à atteindre mes objectifs futurs. 
+          </p>
         </div>
-      ),
-    },
-    {
-      title: "Optimization",
-      description:
-        "Leveraging user feedback and analytics, I improved the seller web dashboard design, reducing bounce rates. Simultaneously, I overhauled the build process, slashing bundle size and boosting overall performance.",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Frontend Engineer Intern
-        </div>
-      ),
+      ),      
+      bgImage: "url('/bgImages/licence.jpg')",
     },
   ],
-  AVIATE: [
+  EXPERIENCE: [
     {
-      title: "Aviate",
-      description:
-        "Aviate is a preparation and mentorship platform for job-seekers that are seeking non-technical roles across top companies",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Finding the right job isn&apos;t fate, it&apos;s navigation
-        </div>
+      year: "2024",
+      title: (
+        <h2 className="text-white text-xl font-semibold">
+          Stage Développeur Web — SPAT
+        </h2>
       ),
+      description: (
+        <div className="flex flex-col gap-4 text-base max-w-md">
+          <p>
+            <span className="font-semibold">Thème :</span>{" "}
+            <span className="text-white">
+              Conception et mise en place d&apos;une plateforme pour la gestion et le suivi des congés des employés.
+            </span>
+          </p>
+      
+          <p className="leading-relaxed text-slate-400 border-l-4 border-green-400 pl-4 italic">
+            Une solution logicielle intuitive pour planifier, automatiser et suivre les demandes de congé, tout en garantissant une meilleure organisation et conformité aux règles internes.
+          </p>
+      
+          <p>
+            <span className="font-semibold">Technologies :</span>{" "}
+            <span className="text-white">#Next.js, #NestJS, #MySQL</span>
+          </p>
+        </div>
+      ),      
+      bgImage: "url('/bgImages/spat.png')",
     },
     {
-      title: "Innovation",
-      description:
-        "I spearheaded the development of Q-Rate, their flagship product, a voice-based applicant screening platform. Moreover, I took initiatives to enhance user engagement and drive substantial increases in daily traffic. Additionally, I implemented an error-logging and bug reporting system, significantly diminishing user-reported bugs.",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Frontend Developer Intern
-        </div>
+      year: "2023",
+      title: (
+        <h2 className="text-white text-xl font-semibold">
+          Stage Développeur Web — SMMC
+        </h2>
       ),
+      description: (
+        <div className="flex flex-col gap-4 text-base max-w-md">
+          <p>
+            <span className="font-semibold">Thème :</span>{" "}
+            <span className="text-white">
+              Conception et mise en place d'une plateforme web pour la gestion d'accès au 
+              sein du site siège de la SMMC.
+            </span>
+          </p>
+      
+          <p className="leading-relaxed text-slate-400 border-l-4 border-green-400 pl-4 italic">
+          Un plateforme web qui permet de facilité les suivies des visiteurs (entrée , sortie ) 
+          et de faire une  rechercher à partir de l&apos;heure et de la  date en cas de problème au sein de la SMMC
+          </p>
+      
+          <p>
+            <span className="font-semibold">Technologies :</span>{" "}
+            <span className="text-white">#JAVA, #Jsp, #Html, #Css</span>
+          </p>
+        </div>
+      ),      
+      bgImage: "url('/bgImages/smmc.jpg')",
+    },
+    {
+      year: "2022",
+      title: (
+        <h2 className="text-white text-xl font-semibold">
+          Hackaton - DevHunt
+        </h2>
+      ),
+      description: (
+        <div className="flex flex-col gap-4 text-base max-w-md">
+          <p>
+            <span className="font-semibold">Organisateur :</span>{" "}
+            <span className="text-white">
+              Ecole Nationale d&apos;Informatique (ENI)
+            </span>
+          </p>
+      
+          <p className="leading-relaxed text-slate-400 border-l-4 border-green-400 pl-4 italic">
+            Réalisation d&apos;un site vitrine pour présenter l&apos;université de Fianarantsoa,{" "}
+            visant à valoriser son image institutionnelle, faciliter l&apos;accès à l&apos;information académique et renforcer sa présence en ligne.
+          </p>
+      
+          <p>
+            <span className="font-semibold">Point clé :</span>{" "}
+            <span className="text-white">Projet collaboratif axé sur accessibilité, clarté, modernité et cohérence visuelle</span>
+          </p>
+        </div>
+      ),      
+      bgImage: "url('/bgImages/eni.png')",
     },
   ],
 };
+
+
 
 export const GTAG = "G-5HCTL2TJ5W";

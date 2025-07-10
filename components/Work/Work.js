@@ -12,22 +12,22 @@ const Work = ({ isDesktop }) => {
   const tabItems = useMemo(
     () => [
       {
-        title: "Formations",
-        value: "formations",
-        content: (
-          <StickyScroll
-            isDesktop={isDesktop}
-            contentItems={WORK_CONTENTS.DUKAAN}
-          />
-        ),
-      },
-      {
         title: "Expériences",
         value: "experiences",
         content: (
           <StickyScroll
             isDesktop={isDesktop}
-            contentItems={WORK_CONTENTS.AVIATE}
+            contentItems={WORK_CONTENTS.EXPERIENCE}
+          />
+        ),
+      },
+      {
+        title: "Diplomes",
+        value: "diplomes",
+        content: (
+          <StickyScroll
+            isDesktop={isDesktop}
+            contentItems={WORK_CONTENTS.DIPLOME}
           />
         ),
       },
@@ -78,10 +78,10 @@ const Work = ({ isDesktop }) => {
               Parcours
             </p>
             <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
-              Experiences et Formations
+              Experiences et Diplômes
             </h1>
             <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-              Un petit voyage à travers les endroits où j&apos;ai étudié et forgé mon expérience.{" "}
+              Entre formations académiques et expériences sur le terrain, voici un aperçu des moments clés de mon évolution.{" "}
             </h2>
           </div>
           <Tabs tabItems={tabItems} />
