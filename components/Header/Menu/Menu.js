@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { MENULINKS } from "../../../constants";
+import { useTranslation } from "react-i18next";
 
 const Menu = ({ isMobile = false, onLinkClick = () => {} }) => {
   const [activeSection, setActiveSection] = useState("");
+  const {t} = useTranslation();
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
@@ -34,27 +36,26 @@ const Menu = ({ isMobile = false, onLinkClick = () => {} }) => {
 
   return (
     <ul className={`list-none p-0 m-0 ${isMobile ? "flex-col" : "flex gap-8 items-center"}`}>
-      {MENULINKS.map((el) => {
-  const isActive = activeSection === el.ref;
-  const isHome = activeSection === "home";
-  return (
-    <li key={el.name}>
-      <a
-        onClick={onLinkClick}
-        href={`#${el.ref}`}
-        className={`link relative font-mono font-bold duration-300
-          ${isMobile ? "text-4xl block my-4" : "text-base"}
-          ${isActive && isMobile ? "text-gradient" : ""}
-          ${isActive && !isMobile ? "visited text-white" : ""}
-          ${!isActive && !isHome ? "text-white opacity-50" : "text-white"}
-        `}
-      >
-        {el.name}
-      </a>
-    </li>
-  );
-})}
-
+        {MENULINKS.map((el) => {
+          const isActive = activeSection === el.ref;
+          const isHome = activeSection === "home";
+          return (
+            <li key={el.name}>
+              <a
+                onClick={onLinkClick}
+                href={`#${el.ref}`}
+                className={`link relative font-mono font-bold duration-300
+                  ${isMobile ? "text-4xl block my-4" : "text-base"}
+                  ${isActive && isMobile ? "text-gradient" : ""}
+                  ${isActive && !isMobile ? "visited text-white" : ""}
+                  ${!isActive && !isHome ? "text-white opacity-50" : "text-white"}
+                `}
+              >
+                {t(el.name)}
+              </a>
+            </li>
+          );
+      })}
     </ul>
   );
 };

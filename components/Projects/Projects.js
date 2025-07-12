@@ -3,33 +3,38 @@ import { MENULINKS, PROJECTS } from "../../constants";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ProjectTile from "./ProjectTile/ProjectTile";
+import { useTranslation } from "react-i18next";
 
 const Projects = ({ isDesktop, clientHeight }) => {
   const sectionRef = useRef(null);
   const sectionTitleRef = useRef(null);
+  const {t} = useTranslation();
 
   useEffect(() => {
-    let projectsScrollTrigger;
-    let projectsTimeline;
-
-    if (isDesktop) {
-      [projectsTimeline, projectsScrollTrigger] = getProjectsSt();
+    const projectWrapper = sectionRef.current.querySelector(".project-wrapper");
+  
+    const shouldScroll = projectWrapper.scrollWidth > window.innerWidth;
+  
+    if (isDesktop && shouldScroll) {
+      const [projectsTimeline, projectsScrollTrigger] = getProjectsSt();
+  
+      return () => {
+        projectsScrollTrigger && projectsScrollTrigger.kill();
+        projectsTimeline && projectsTimeline.kill();
+      };
     } else {
-      const projectWrapper =
-        sectionRef.current.querySelector(".project-wrapper");
-      projectWrapper.style.width = "calc(100vw - 1rem)";
-      projectWrapper.style.overflowX = "scroll";
+      projectWrapper.style.width = "100%";
+      projectWrapper.style.overflowX = "visible";
     }
-
+  
     const [revealTimeline, revealScrollTrigger] = getRevealSt();
-
+  
     return () => {
-      projectsScrollTrigger && projectsScrollTrigger.kill();
-      projectsTimeline && projectsTimeline.kill();
       revealScrollTrigger && revealScrollTrigger.kill();
       revealTimeline && revealTimeline.progress(1);
     };
-  }, [sectionRef, sectionTitleRef, isDesktop]);
+  }, [sectionRef, isDesktop]);
+  
 
   const getRevealSt = () => {
     const revealTl = gsap.timeline({ defaults: { ease: "none" } });
@@ -52,20 +57,27 @@ const Projects = ({ isDesktop, clientHeight }) => {
   };
 
   const getProjectsSt = () => {
-    const timeline = gsap.timeline({ defaults: { ease: "none" } });
+    const wrapper = sectionRef.current.querySelector(".project-wrapper");
+    const inner = sectionRef.current.querySelector(".inner-container");
+  
     const sidePadding =
-      document.body.clientWidth -
-      sectionRef.current.querySelector(".inner-container").clientWidth;
-    const elementWidth =
-      sidePadding +
-      sectionRef.current.querySelector(".project-wrapper").clientWidth;
-    sectionRef.current.style.width = `${elementWidth}px`;
-    const width = window.innerWidth - elementWidth;
-    const duration = `${(elementWidth / window.innerHeight) * 100}%`;
+      document.body.clientWidth - inner.clientWidth;
+  
+    const totalWidth = sidePadding + wrapper.scrollWidth;
+    const windowWidth = window.innerWidth;
+  
+    if (totalWidth <= windowWidth) return [null, null];
+  
+    sectionRef.current.style.width = `${totalWidth}px`;
+    const width = window.innerWidth - totalWidth;
+    const duration = `${(totalWidth / window.innerHeight) * 100}%`;
+  
+    const timeline = gsap.timeline({ defaults: { ease: "none" } });
+  
     timeline
       .to(sectionRef.current, { x: width })
       .to(sectionTitleRef.current, { x: -width }, "<");
-
+  
     const scrollTrigger = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
@@ -75,9 +87,10 @@ const Projects = ({ isDesktop, clientHeight }) => {
       animation: timeline,
       pinSpacing: "margin",
     });
-
+  
     return [timeline, scrollTrigger];
   };
+  
 
   return (
     <section
@@ -87,19 +100,19 @@ const Projects = ({ isDesktop, clientHeight }) => {
         isDesktop && "min-h-screen"
       } w-full relative select-none section-container transform-gpu`}
     >
-      <div className="flex flex-col py- justify-center h-full">
+      <div className="flex flex-col py- h-full">
         <div
           className="flex flex-col inner-container transform-gpu"
           ref={sectionTitleRef}
         >
           <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
-            PROJETS
+            {t("projects")}
           </p>
           <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
-            Mes Projets
+            {t("myProjects")}
           </h1>
           <h2 className="text-[1.65rem] font-medium md:max-w-lg max-w-sm mt-2 staggered-reveal">
-            Un aperçu de mes projets, où passion, expertise et une touche d&apos;ingéniosité se rencontrent.{" "}
+            {t("introProjects")}{" "}
           </h2>
         </div>
         <div

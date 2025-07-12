@@ -1,10 +1,12 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useTranslation } from "react-i18next";
 
 const About2 = ({ clientHeight }) => {
   const sectionRef = useRef(null);
   const quoteRef = useRef(null);
+  const {t} = useTranslation();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -41,7 +43,7 @@ const About2 = ({ clientHeight }) => {
           ref={quoteRef}
           className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
         >
-          Je veille à la{" "}
+          {t("semiFact1")}{" "}
           <span
             className="about-3 font-bold"
             style={{
@@ -52,9 +54,9 @@ const About2 = ({ clientHeight }) => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            précision
+            {t("semiFact2")}
           </span>{" "}
-          dans chaque projet, du design soigné à l&apos;efficacité du code.
+          {t("semiFact3")}
         </h1>
       </div>
     </section>

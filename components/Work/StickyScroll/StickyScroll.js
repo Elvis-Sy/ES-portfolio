@@ -12,7 +12,7 @@ const StickyScroll = ({ contentItems }) => {
     offset: ["start start", "end start"],
   });
 
-  const cardLength = contentItems.length;
+  const cardLength = contentItems.length || 0;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const cardsBreakpoints = contentItems.map(
@@ -33,11 +33,6 @@ const StickyScroll = ({ contentItems }) => {
   });
 
   const backgroundColors = ["#000000"];
-  const linearGradients = [
-    "linear-gradient(to bottom right, #ef008f, #6ec3f4)",
-    "linear-gradient(to bottom right, #6ec3f4, #7038ff)",
-    "linear-gradient(to bottom right, #7038ff, #c9c9c9)",
-  ];
 
   return (
     <div className="relative">
@@ -61,48 +56,63 @@ const StickyScroll = ({ contentItems }) => {
           backgroundColor:
             backgroundColors[activeCard % backgroundColors.length],
         }}
-        className="h-[22rem] flex justify-center space-x-10 p-4 rounded-2xl outline outline-1 outline-gray-dark-1 overflow-y-auto no-scrollbar"
+        className="h-[22rem] flex justify-between p-4 lg:py-4 lg:px-20 rounded-2xl outline outline-1 outline-gray-dark-1 overflow-y-auto no-scrollbar"
       >
-        <div className="flex items-start px-4">
-          <div className="max-w-2xl">
-            {contentItems.map((item, index) => (
-              <div key={item.title + index} className="my-8">
+        {/* Timeline verticale à gauche */}
+        <div className="relative w-full lg:w-1/2 h-full flex flex-col justify-between pr-6 max-w-lg">
+
+          {contentItems.map((item, index) => (
+            <div
+              key={item.title + index}
+              className={`relative min-h-full flex items-center gap-4 flex-1`}
+            >
+              {/* Dot centré verticalement */}
+              <div className="absolute left-[53px] lg:left-[61px] top-0 bottom-0 bg-white w-[2px] z-0" />
+
+              {/* Texte centré verticalement */}
+              <div className="flex flex-col justify-center h-full">
                 <motion.h2
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
-                  className="text-2xl font-bold text-slate-100"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCard === index ? 1 : 0.4 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center gap-2 text-xl font-semibold"
                 >
+                  <span className="font-normal font-mono">
+                    {item.year}
+                  </span>
+                  <div className="relative z-10 flex items-center justify-center h-full">
+                    <div
+                      className="w-3 h-3 rounded-full"
+                      style={{
+                        backgroundColor: activeCard === index ? "#6ec3f4" : "#555",
+                      }}
+                    />
+                  </div>
                   {item.title}
                 </motion.h2>
                 <motion.p
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
-                  className="text-lg text-slate-300 max-w-sm mt-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCard === index ? 1 : 0.4 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-base ml-24 mt-1 max-w-sm"
                 >
                   {item.description}
                 </motion.p>
               </div>
-            ))}
-            <div className="h-40" />
-          </div>
+            </div>
+          ))}
         </div>
+
+        {/* Cadre animé sticky à droite */}
         <motion.div
           animate={{
-            backgroundImage:
-              linearGradients[activeCard % linearGradients.length],
+            backgroundImage: contentItems[activeCard]?.bgImage || "none",
           }}
-          className="hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden"
+          className="hidden lg:flex h-60 w-96 rounded-md sticky top-10 overflow-hidden bg-cover bg-center"
         >
-          {contentItems[activeCard].content ?? null}
+
         </motion.div>
+
       </motion.div>
     </div>
   );

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { cn } from "utils/cn";
 
 const Tab = ({ index, tab, activeTab, handleOnClick, setIsHovering }) => {
+
   return (
     <button
       onMouseDown={() => handleOnClick(index)}
@@ -43,7 +44,7 @@ const TabsContent = ({ tabs, isHovering }) => {
             layoutId={tab.value}
             style={{
               scale: 1 - index * 0.1,
-              top: isHovering ? index * -50 : 0,
+              top: isHovering ? index * -100 : -50,
               zIndex: -index,
               opacity: index < 3 ? 1 - index * 0.1 : 0,
             }}

@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import mail from "./mailer";
 import styles from "./Contact.module.scss";
 import { MENULINKS } from "../../constants";
+import { useTranslation } from "react-i18next";
 
 const filter = new Filter();
 filter.removeWords("hell", "god", "shit");
@@ -20,18 +21,18 @@ const toastOptions = {
   },
 };
 
-const empty = () =>
-  toast.error("Champs requis", {
+const empty = (t) =>
+  toast.error(t("required"), {
     id: "error",
   });
 
-const error = () =>
-  toast.error("Erreur lors de l'envoi", {
+const error = (t) =>
+  toast.error(t("error"), {
     id: "error",
   });
 
-const success = () =>
-  toast.success("Message envoyé avec succès", {
+const success = (t) =>
+  toast.success(t("success"), {
     id: "success",
   });
 
@@ -42,6 +43,7 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const buttonElementRef = useRef(null);
   const sectionRef = useRef(null);
+  const {t} = useTranslation();
 
   const handleChange = ({ target }) => {
     const { id, value } = target;
@@ -72,7 +74,7 @@ const Contact = () => {
     };
 
     if (name === "" || email === "" || message === "") {
-      empty();
+      empty(t);
       return setMailerResponse("empty");
     }
 
@@ -192,18 +194,18 @@ const Contact = () => {
             {
               "--text-opacity": 0,
               "--border-radius": 0,
-              "--left-wing-background": "#9f55ff",
-              "--right-wing-background": "#9f55ff",
+              "--left-wing-background": "#2ecc71",
+              "--right-wing-background": "#2ecc71",
               duration: 0.11,
             },
             {
-              "--left-wing-background": "#8b31ff",
-              "--right-wing-background": "#8b31ff",
+              "--left-wing-background": "#1e5631",
+              "--right-wing-background": "#1e5631",
               duration: 0.14,
             },
             {
-              "--left-body-background": "#9f55ff",
-              "--right-body-background": "#9f55ff",
+              "--left-body-background": "#2ecc71",
+              "--right-body-background": "#2ecc71",
               duration: 0.25,
               delay: 0.1,
             },
@@ -268,7 +270,7 @@ const Contact = () => {
             </h1>
           </div>
           <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-            N&apos;hésitez pas à me contacter.{" "}
+            {t("introContact")}{" "}
           </h2>
         </div>
 
@@ -287,7 +289,7 @@ const Contact = () => {
                 htmlFor="name"
                 className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
               >
-                Nom
+                {t("name")}
               </label>
             </div>
 
@@ -304,7 +306,7 @@ const Contact = () => {
                 htmlFor="email"
                 className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
               >
-                Email
+                {t("email")}
               </label>
             </div>
 
@@ -327,9 +329,9 @@ const Contact = () => {
 
           {mailerResponse !== "not initiated" &&
             (mailerResponse === "success" ? (
-              <div className="hidden">{success()}</div>
+              <div className="hidden">{success(t)}</div>
             ) : (
-              <div className="hidden">{error()}</div>
+              <div className="hidden">{error(t)}</div>
             ))}
         </form>
         <div className="mt-9 mx-auto link">
@@ -345,12 +347,12 @@ const Contact = () => {
             }
             onClick={handleSubmit}
           >
-            <span>Envoyer -&gt;</span>
+            <span>{t("send")} -&gt;</span>
             <span className={styles.success}>
               <svg viewBox="0 0 16 16">
                 <polyline points="3.75 9 7 12 13 5"></polyline>
               </svg>
-              Envoyé
+              {t("sent")}
             </span>
             <svg className={styles.trails} viewBox="0 0 33 64">
               <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
