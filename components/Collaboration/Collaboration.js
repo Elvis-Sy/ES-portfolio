@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useTranslation } from "react-i18next";
 
 const Collaboration = ({ clientHeight }) => {
   const sectionRef = useRef(null);
   const quoteRef = useRef(null);
+  const {t} = useTranslation();
 
   useEffect(() => {
     const smallScreen = document.body.clientWidth < 767;
@@ -64,7 +66,7 @@ const Collaboration = ({ clientHeight }) => {
         <p className="opacity-40 text-6xl sm:text-7xl font-semibold whitespace-nowrap ui-left transform-gpu">
           {Array(5)
             .fill(
-              " Développement Web Architectures Flexibles Ingénerie Logicielle "
+              ` ${t("collaborationUp")} `
             )
             .reduce((str, el) => str.concat(el), "")}{" "}
         </p>
@@ -73,7 +75,7 @@ const Collaboration = ({ clientHeight }) => {
           ref={quoteRef}
           className="mt-6 md:mt-8 font-medium text-4xl md:text-5xl text-center"
         >
-          Prêt pour une{" "}
+          {t("collaborationCenter1")}{" "}
           <span
             className="text-strong font-semibold"
             style={{
@@ -84,7 +86,7 @@ const Collaboration = ({ clientHeight }) => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            Collaboration
+            {t("collaborationCenter2")}
           </span>
           ?
         </h1>
@@ -92,7 +94,7 @@ const Collaboration = ({ clientHeight }) => {
         <p className="mt-6 md:mt-8 opacity-40 text-6xl sm:text-7xl font-semibold whitespace-nowrap ui-right transform-gpu">
           {Array(5)
             .fill(
-              " Pratique DevOps Automatisation Des Processus Déploiement Agile "
+              ` ${t("collaborationDown")} `
             )
             .reduce((str, el) => str.concat(el), "")}{" "}
         </p>

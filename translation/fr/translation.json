@@ -51,6 +51,18 @@
     "experiencesDescription3H1": "Ecole Nationale d'Informatique (Madagascar)",
     "experiencesDescription3H2": "Réalisation d'un site vitrine pour présenter l'université de Fianarantsoa, visant à valoriser son image institutionnelle, faciliter l'accès à l'information académique et renforcer sa présence en ligne.",
     "experiencesDescription3H3": "Projet collaboratif axé sur accessibilité, clarté, modernité et cohérence visuelle",
-    "keys": "Point clé"
+    "keys": "Point clé",
+    "collaborationUp": "Développement Web Architectures Flexibles Ingénerie Logicielle",
+    "collaborationDown": "Pratique DevOps Automatisation Processus Déploiement Agile",
+    "collaborationCenter1": "Prêt pour une",
+    "collaborationCenter2": "Collaboration ?",
+    "introContact": "N'hésitez pas à me contacter.",
+    "name": "Nom",
+    "email": "E-mail",
+    "send": "Envoyer",
+    "sent": "Envoyé",
+    "required": "Champs requis",
+    "error": "Erreur lors de l'envoi",
+    "success": "Message envoyé avec succès"
 }
   
