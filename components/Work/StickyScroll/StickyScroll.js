@@ -67,7 +67,7 @@ const StickyScroll = ({ contentItems }) => {
               className={`relative min-h-full flex items-center gap-4 flex-1`}
             >
               {/* Dot centré verticalement */}
-              <div className="absolute left-[57px] lg:left-[64px] top-0 bottom-0 bg-white w-[2px] z-0" />
+              <div className="absolute left-[53px] lg:left-[60px] top-0 bottom-0 bg-white w-[2px] z-0" />
 
               {/* Texte centré verticalement */}
               <div className="flex flex-col justify-center h-full">
