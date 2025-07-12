@@ -2,11 +2,14 @@ import { useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 import VanillaTilt from "vanilla-tilt";
 import styles from "./ProjectTile.module.scss";
+import { useTranslation } from "react-i18next";
 
 const ProjectTile = ({ project, classes, isDesktop }) => {
   const { name, image, blurImage, description, gradient, url, git, tech } = project;
   const projectCard = useRef(null);
   let additionalClasses = "";
+  const {t} = useTranslation();
+
   if (classes) {
     additionalClasses = classes;
   }
@@ -102,7 +105,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
           className="text-lg z-10 tracking-wide font-medium text-white transform-gpu"
           style={{ transform: "translateZ(0.8rem)" }}
         >
-          {description}
+          {t(description)}
           <h3
             className="flex gap-2 text-sm items-center justify-center px-4 py-2 rounded-full bg-black/50 w-fit cursor-pointer transition duration-200 hover:bg-black/70 active:scale-95"
           >
@@ -117,7 +120,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
               href={git}
               className="text-white underline-offset-2 hover:underline transition-colors duration-200"
             >
-              Lien Github
+              {t("github")}
             </a>
           </h3>
 

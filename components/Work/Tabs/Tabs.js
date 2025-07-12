@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { cn } from "utils/cn";
 
 const Tab = ({ index, tab, activeTab, handleOnClick, setIsHovering }) => {
+
   return (
     <button
       onMouseDown={() => handleOnClick(index)}

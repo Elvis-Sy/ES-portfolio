@@ -3,10 +3,12 @@ import { MENULINKS, PROJECTS } from "../../constants";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ProjectTile from "./ProjectTile/ProjectTile";
+import { useTranslation } from "react-i18next";
 
 const Projects = ({ isDesktop, clientHeight }) => {
   const sectionRef = useRef(null);
   const sectionTitleRef = useRef(null);
+  const {t} = useTranslation();
 
   useEffect(() => {
     const projectWrapper = sectionRef.current.querySelector(".project-wrapper");
@@ -104,13 +106,13 @@ const Projects = ({ isDesktop, clientHeight }) => {
           ref={sectionTitleRef}
         >
           <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
-            PROJETS
+            {t("projects")}
           </p>
           <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
-            Mes Projets
+            {t("myProjects")}
           </h1>
           <h2 className="text-[1.65rem] font-medium md:max-w-lg max-w-sm mt-2 staggered-reveal">
-            Un aperçu de mes projets, où passion, expertise et une touche d&apos;ingéniosité se rencontrent.{" "}
+            {t("introProjects")}{" "}
           </h2>
         </div>
         <div

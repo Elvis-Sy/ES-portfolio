@@ -3,10 +3,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Button from "../Button/Button";
 import { MENULINKS } from "../../constants";
+import { useTranslation } from "react-i18next";
 
 const About1 = ({ clientHeight }) => {
   const sectionRef = useRef(null);
   const quoteRef = useRef(null);
+  const { t } = useTranslation();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -64,7 +66,7 @@ const About1 = ({ clientHeight }) => {
       >
         <div className="flex flex-col mb-8">
           <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
-            ABOUT ME
+            {t("aboutme")}
           </p>
           <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
             Informations
@@ -94,19 +96,19 @@ const About1 = ({ clientHeight }) => {
                 className="font-medium text-[1.50rem] md:text-6xl lg:text-[2rem] lg:text-left text-center"
               >
                 <span className="about-1 leading-tight">
-                  Je suis un développeur dévoué qui adore relever les défis et étendre ses compétences sur différents projets.{" "}
+                  {t("fact1")}{" "}
                 </span>
                 <span className="about-2 leading-tight">
-                Ma curiosité me permet de m&apos;adapter rapidement aux nouvelles tendances pour optimiser mes développements.{" "}
+                  {t("fact2")}{" "}
                 </span>
                 <span className="about-3 leading-tight">
-                Ainsi, je m&apos;efforce de créer des solutions performants, évolutives et adaptées aux utilisateurs.{" "}
+                  {t("fact3")}{" "}
                 </span>
               </h1>
 
               <div className="staggered-reveal pt-4 lg:self-auto self-center">
                 <Button href="" classes="link" type="primary">
-                  Download CV
+                  {t("download")}
                 </Button>
               </div>
           </div>

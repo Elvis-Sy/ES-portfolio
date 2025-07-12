@@ -5,17 +5,18 @@ import Button from "../Button/Button";
 import Profiles from "../Profiles/Profiles";
 import styles from "./Hero.module.scss";
 import { MENULINKS, TYPED_STRINGS } from "../../constants";
+import { useTranslation } from "react-i18next";
 
-const options = {
-  strings: TYPED_STRINGS,
-  typeSpeed: 50,
-  startDelay: 1500,
-  backSpeed: 50,
-  backDelay: 8000,
-  loop: true,
-};
 
 const Hero = () => {
+  const { t, i18n } = useTranslation();
+  const [typedStrings, setTypedStrings] = useState([]);
+
+  useEffect(()=>{
+    const updatedStrings = TYPED_STRINGS.map((key) => t(key));
+    setTypedStrings(updatedStrings);
+  }, [i18n.language])
+
   const [lottie, setLottie] = useState(null);
 
   const sectionRef = useRef(null);
@@ -38,10 +39,19 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    const typed = new Typed(typedElementRef.current, options);
+    if(typedElementRef.current && typedStrings.length > 0){
+      const typed = new Typed(typedElementRef.current, {
+        strings: typedStrings,
+        typeSpeed: 50,
+        startDelay: 1500,
+        backSpeed: 50,
+        backDelay: 6000,
+        loop: true,
+      });
 
-    return () => typed.destroy();
-  }, [typedElementRef]);
+      return () => typed.destroy();
+    }
+  }, [typedStrings]);
 
   useEffect(() => {
     import("lottie-web").then((Lottie) => setLottie(Lottie.default));
@@ -79,7 +89,7 @@ const Hero = () => {
         <h5
           className={`${styles.intro} font-mono font-medium text-indigo-light staggered-reveal`}
         >
-          Bonjour, je m&apos;appelle
+          {t("greeting")}
         </h5>
         <h1 className={`${styles.heroName} text-white text-6xl font-semibold`}>
           <span className={`relative ${styles.emphasize} staggered-reveal`}>
@@ -98,7 +108,7 @@ const Hero = () => {
         </div>
         <div className="staggered-reveal pt-4">
           <Button href={`#${MENULINKS[4].ref}`} classes="link" type="primary">
-            Contactez-moi
+            {t("tryme")}
           </Button>
         </div>
       </div>

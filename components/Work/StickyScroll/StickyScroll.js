@@ -12,7 +12,7 @@ const StickyScroll = ({ contentItems }) => {
     offset: ["start start", "end start"],
   });
 
-  const cardLength = contentItems.length;
+  const cardLength = contentItems.length || 0;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const cardsBreakpoints = contentItems.map(
@@ -33,11 +33,6 @@ const StickyScroll = ({ contentItems }) => {
   });
 
   const backgroundColors = ["#000000"];
-  const linearGradients = [
-    "linear-gradient(to bottom right, #ef008f, #6ec3f4)",
-    "linear-gradient(to bottom right, #6ec3f4, #7038ff)",
-    "linear-gradient(to bottom right, #7038ff, #c9c9c9)",
-  ];
 
   return (
     <div className="relative">
@@ -72,7 +67,7 @@ const StickyScroll = ({ contentItems }) => {
               className={`relative min-h-full flex items-center gap-4 flex-1`}
             >
               {/* Dot centré verticalement */}
-              <div className="absolute left-[53px] lg:left-[61px] top-0 bottom-0 bg-white w-[2px] z-0" />
+              <div className="absolute left-[63px] lg:left-[73px] top-0 bottom-0 bg-white w-[2px] z-0" />
 
               {/* Texte centré verticalement */}
               <div className="flex flex-col justify-center h-full">
@@ -99,7 +94,7 @@ const StickyScroll = ({ contentItems }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: activeCard === index ? 1 : 0.4 }}
                   transition={{ duration: 0.3 }}
-                  className="text-base ml-20 mt-1 max-w-sm"
+                  className="text-base ml-24 mt-1 max-w-sm"
                 >
                   {item.description}
                 </motion.p>
@@ -111,7 +106,7 @@ const StickyScroll = ({ contentItems }) => {
         {/* Cadre animé sticky à droite */}
         <motion.div
           animate={{
-            backgroundImage: contentItems[activeCard].bgImage || "none",
+            backgroundImage: contentItems[activeCard]?.bgImage || "none",
           }}
           className="hidden lg:flex h-60 w-96 rounded-md sticky top-10 overflow-hidden bg-cover bg-center"
         >

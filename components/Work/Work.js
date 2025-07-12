@@ -1,39 +1,54 @@
-import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Tabs from "./Tabs/Tabs";
 import StickyScroll from "./StickyScroll/StickyScroll";
-import { MENULINKS, WORK_CONTENTS } from "../../constants";
+import { MENULINKS } from "../../constants";
+import { useTranslation } from "react-i18next";
+import { getWorkContents } from "utils/getwork";
 
 const Work = ({ isDesktop }) => {
   const sectionRef = useRef(null);
+  const {t, i18n} = useTranslation();
+  const [workContents, setWorkContents] = useState(getWorkContents(t));
+
+  useEffect(()=>{
+    const onLanguageChanged = () => {
+      setWorkContents(getWorkContents(t));
+    };
+  
+    i18n.on("languageChanged", onLanguageChanged);
+  }, [i18n.language])
 
   const tabItems = useMemo(
     () => [
       {
-        title: "Expériences",
+        title: t("experiences"),
         value: "experiences",
         content: (
           <StickyScroll
+            key={`experience-${i18n.language}`}
             isDesktop={isDesktop}
-            contentItems={WORK_CONTENTS.EXPERIENCE}
+            contentItems={workContents.EXPERIENCE || []}
           />
         ),
       },
       {
-        title: "Diplomes",
-        value: "diplomes",
+        title: t("degree"),
+        value: "degree",
         content: (
           <StickyScroll
+            key={`degree-${i18n.language}`}
             isDesktop={isDesktop}
-            contentItems={WORK_CONTENTS.DIPLOME}
+            contentItems={workContents.DEGREE || []}
           />
         ),
       },
     ],
-    [isDesktop]
+    [isDesktop, workContents, i18n.language, t]
   );
+  
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -75,16 +90,16 @@ const Work = ({ isDesktop }) => {
         <div className="flex flex-col work-wrapper">
           <div className="flex flex-col">
             <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
-              Parcours
+              {t("career")}
             </p>
             <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
-              Experiences et Diplômes
+              {t("myCareer")}
             </h1>
             <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-              Entre formations académiques et expériences sur le terrain, voici un aperçu des moments clés de mon évolution.{" "}
+              {t("introCareer")}{" "}
             </h2>
           </div>
-          <Tabs tabItems={tabItems} />
+          <Tabs key={i18n.language} tabItems={tabItems} />
         </div>
       </div>
     </section>

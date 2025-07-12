@@ -22,30 +22,30 @@ export const METADATA = {
 
 export const MENULINKS = [
   {
-    name: "A propos",
-    ref: "apropos",
+    name: "about",
+    ref: "about",
   },
   {
-    name: "Skills",
+    name: "skills",
     ref: "skills",
   },
   {
-    name: "Projets",
+    name: "projects",
     ref: "projects",
   },
   {
-    name: "Parcours",
-    ref: "work",
+    name: "career",
+    ref: "career",
   },
   {
-    name: "Contact",
+    name: "contact",
     ref: "contact",
   },
 ];
 
 export const TYPED_STRINGS = [
-  "Full-Stack développeur web",
-  "Développeur DevOps junior",
+  "fullstack",
+  "devops",
 ];
 
 export const SOCIAL_LINKS = [
@@ -105,7 +105,7 @@ export const PROJECTS = [
     name: "FlotMax",
     image: "/projects/flotmax.jpeg",
     blurImage: "/projects/blur/flotmax-blur.jpg",
-    description: "Application aidant pour les problèmes de flot maximal✍🏻",
+    description: "projectsDescription1",
     gradient: ["#1e3a8a", "#3b0764"],
     url: "https://flot-maximal.vercel.app/",
     git: "https://github.com/Elvis-Sy/FlotMaximal",
@@ -115,7 +115,7 @@ export const PROJECTS = [
 ];
 
 export const WORK_CONTENTS = {
-  DIPLOME: [
+  DEGREE: [
     {
       year: "2025",
       title: (

@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { MENULINKS, SKILLS } from "../../constants";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,6 +51,7 @@ const SkillItem = ({ skill, isActive, onToggle }) => {
 const Skills = () => {
   const sectionRef = useRef(null);
   const [activeSkill, setActiveSkill] = useState(null);
+  const {t} = useTranslation();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -106,16 +108,16 @@ const Skills = () => {
               SKILLS
             </p>
             <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
-              Mes Skills
+              {t("mySkills")}
             </h1>
             <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-              J&apos;aime explorer de nouvelles technologies et perfectionner mes compétences techniques.
+              {t("introSkills")}
             </h2>
           </div>
 
           <div className="mt-10">
             <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 staggered-reveal">
-              LANGAGES ET OUTILS
+              {t("skills1")}
             </h3>
             <div className="flex items-center flex-wrap gap-6 staggered-reveal">
               {renderSkills(SKILLS.languagesAndTools)}
@@ -124,7 +126,7 @@ const Skills = () => {
 
           <div className="mt-10">
             <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 staggered-reveal">
-              BIBLIOTHÈQUES ET FRAMEWORKS
+              {t("skills2")}
             </h3>
             <div className="flex flex-wrap gap-6 transform-gpu staggered-reveal">
               {renderSkills(SKILLS.librariesAndFrameworks)}
@@ -134,7 +136,7 @@ const Skills = () => {
           <div className="flex flex-wrap mt-10">
             <div className="mr-16 xs:mr-20 mb-6 staggered-reveal">
               <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4">
-                BASES DE DONNÉES
+                {t("skills3")}
               </h3>
               <div className="flex flex-wrap gap-6 transform-gpu">
                 {renderSkills(SKILLS.databases)}
@@ -142,7 +144,7 @@ const Skills = () => {
             </div>
             <div className="staggered-reveal">
               <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4">
-                AUTRES
+                {t("skills4")}
               </h3>
               <div className="flex flex-wrap gap-6 transform-gpu">
                 {renderSkills(SKILLS.other)}

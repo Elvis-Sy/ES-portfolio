@@ -4,6 +4,7 @@ import Meta from "@/components/Meta/Meta";
 import "../styles/globals.scss";
 import { GTAG } from "constants";
 import { SoundProvider } from "@/components/Header/SoundBar/SoundContext";
+import './i18n'
 
 const App = ({ Component, pageProps }) => {
   return (
