@@ -15,7 +15,7 @@ const Hero = () => {
   useEffect(()=>{
     const updatedStrings = TYPED_STRINGS.map((key) => t(key));
     setTypedStrings(updatedStrings);
-  }, [i18n.language])
+  }, [i18n.language, t])
 
   const [lottie, setLottie] = useState(null);
 

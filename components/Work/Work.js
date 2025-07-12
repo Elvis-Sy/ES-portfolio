@@ -13,13 +13,17 @@ const Work = ({ isDesktop }) => {
   const {t, i18n} = useTranslation();
   const [workContents, setWorkContents] = useState(getWorkContents(t));
 
-  useEffect(()=>{
+  useEffect(() => {
     const onLanguageChanged = () => {
       setWorkContents(getWorkContents(t));
     };
   
     i18n.on("languageChanged", onLanguageChanged);
-  }, [i18n.language])
+  
+    return () => {
+      i18n.off("languageChanged", onLanguageChanged);
+    };
+  }, [i18n, t]);  
 
   const tabItems = useMemo(
     () => [

@@ -23,24 +23,14 @@ export const getWorkContents = (t) => ({
               <span className="text-white">#Cloud Storage, #IAM, #Cloud Functions, #Pub/sub</span>
             </p>
   
-            <p>
-              <button
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-1 rounded-md bg-white text-black font-semibold"
-              >
-                <a 
-                  href="https://www.credly.com/badges/fb48f49c-80b3-490e-8e26-72852c2c3d03/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-transform hover:scale-105 hover:shadow-lg active:scale-95"
-                >
-                  {t("view")}
-                </a>
-              </button>
-  
-            </p>
+            <a 
+              href="https://www.credly.com/badges/fb48f49c-80b3-490e-8e26-72852c2c3d03/public_url"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-105 active:scale-95 px-4 py-1 rounded-md bg-white text-black font-semibold w-fit"
+            >
+              {t("view")}
+            </a>
           </div>
         ),      
         bgImage: "url('https://images.credly.com/size/340x340/images/42326d44-14ff-4eda-b9c5-7d8f12919253/image.png')",
