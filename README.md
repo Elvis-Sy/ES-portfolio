@@ -1,12 +1,12 @@
 # Portfolio
 
-<a href="https://es-portfolio-three.vercel.app">
+<a href="https://elvissy.vercel.app">
   <img alt="devfolio" src="./public/preview.png" />
 </a>
 
 👨‍🎓 Welcome to my personal portfolio! This project showcases my skills, experience, and projects as a developer/problem solver.
 
-### ✨ [Live Demo](https://es-portfolio-three.vercel.app)
+### ✨ [Live Demo](https://elvissy.vercel.app)
 
 ## About
 

@@ -3,7 +3,7 @@ export const METADATA = {
   title: "Elvis Sylvano",
   description:
     "Elvis Sylvano is a driven Fullstack Developer blending clean code and DevOps practices to build robust, scalable digital experiences.",
-  siteUrl: "https://es-portfolio-three.vercel.app/",
+  siteUrl: "https://elvissy.vercel.app/",
   keywords: [
     "Shubh Porwal",
     "DevOps Engineer",
