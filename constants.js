@@ -1,6 +1,6 @@
 export const METADATA = {
-  author: "Elvis Sylvano",
-  title: "ES | Portfolio",
+  author: "Elvis Sylvano ANDRIAMANANTENA",
+  title: "Elvis Sylvano",
   description:
     "Elvis Sylvano is a driven Fullstack Developer blending clean code and DevOps practices to build robust, scalable digital experiences.",
   siteUrl: "https://es-portfolio-three.vercel.app/",
