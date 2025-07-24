@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { calibre, jetbrains_mono } from "public/fonts";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Meta from "@/components/Meta/Meta";
@@ -16,6 +17,7 @@ const App = ({ Component, pageProps }) => {
         >
           <Component {...pageProps} />
           <GoogleAnalytics gaId={GTAG} />
+          <Analytics />
         </main>
       </SoundProvider>
     </>
