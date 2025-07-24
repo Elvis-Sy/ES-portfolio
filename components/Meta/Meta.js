@@ -22,15 +22,11 @@ const Meta = () => (
     <meta property="og:url" content={METADATA.siteUrl} />
     <meta property="og:site_name" content={METADATA.title} />
 
-    {/* Twitter */}
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={METADATA.title} />
-    <meta property="twitter:description" content={METADATA.description} />
-    <meta property="twitter:site" content={METADATA.twitterHandle} />
-    <meta name="twitter:creator" content={METADATA.twitterHandle} />
-    <meta property="twitter:url" content={METADATA.siteUrl} />
-    <meta property="twitter:image" content={METADATA.image} />
-
+    <link 
+      rel="preload" 
+      as="image" 
+      href="/profile.png" 
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"

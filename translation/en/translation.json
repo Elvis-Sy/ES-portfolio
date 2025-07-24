@@ -6,7 +6,7 @@
   "contact": "Contact",
   "greeting": "Hello, my name is",
   "fullstack": "Full-Stack Web Developer",
-  "devops": "Junior DevOps Developer",
+  "devops": "Junior DevOps Engineer",
   "tryme": "Get in touch",
   "aboutme": "About me",
   "fact1": "I'm a dedicated developer who loves tackling challenges and expanding skills across various projects.",
@@ -63,5 +63,7 @@
   "sent": "Sent",
   "required": "Required fields",
   "error": "Error while sending",
-  "success": "Message sent successfully"
+  "success": "Message sent successfully",
+  "footerIntro": "Versatile developer passionate about optimizing user interfaces and designing robust, automated infrastructures.",
+  "phone": "Phone"
 }

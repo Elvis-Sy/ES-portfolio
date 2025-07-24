@@ -5,8 +5,8 @@
     "career": "Parcours",
     "contact": "Contact",
     "greeting": "Bonjour, je m'appelle",
-    "fullstack": "Full-Stack développeur web",
-    "devops": "Développeur DevOps junior",
+    "fullstack": "Développeur web Full-stack",
+    "devops": "Ingénieur DevOps junior",
     "tryme": "Contactez-moi",
     "aboutme": "A propos de moi",
     "fact1": "Je suis un développeur dévoué qui adore relever les défis et étendre ses compétences sur différents projets.",
@@ -63,6 +63,8 @@
     "sent": "Envoyé",
     "required": "Champs requis",
     "error": "Erreur lors de l'envoi",
-    "success": "Message envoyé avec succès"
+    "success": "Message envoyé avec succès",
+    "footerIntro": "Développeur polyvalent, passionné par l’optimisation des interfaces utilisateur et la conception d’infrastructures robustes et automatisées.",
+    "phone": "Numéro"
 }
   

@@ -1,21 +1,18 @@
 export const METADATA = {
-  author: "ES",
+  author: "Elvis Sylvano",
   title: "ES | Portfolio",
   description:
-    "Shubh Porwal is a passionate Frontend Engineer, dedicated to crafting aesthetic and modern apps that captivate and engage users.",
-  siteUrl: "https://www.shubhporwal.me/",
-  twitterHandle: "@shubhporwal24",
+    "Elvis Sylvano is a driven Fullstack Developer blending clean code and DevOps practices to build robust, scalable digital experiences.",
+  siteUrl: "https://es-portfolio-three.vercel.app/",
   keywords: [
     "Shubh Porwal",
-    "Frontend Engineer",
-    "React Native Developer",
-    "Software Engineer",
+    "DevOps Engineer",
+    "Full-Stack Developer",
+    "Elvis",
     "Portfolio",
-    "Devfolio",
-    "Folio",
   ].join(", "),
   image:
-    "https://res.cloudinary.com/dywdhyojt/image/upload/v1721378510/social-preview.png",
+    "/preview.png",
   language: "English",
   themeColor: "#000000",
 };

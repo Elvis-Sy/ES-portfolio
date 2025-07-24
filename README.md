@@ -1,38 +1,31 @@
-# devfolio
+# Portfolio
 
-<a href="https://shubhporwal.me">
+<a href="https://es-portfolio-three.vercel.app">
   <img alt="devfolio" src="./public/preview.png" />
 </a>
 
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
-  <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
-</p>
+👨‍🎓 Welcome to my personal portfolio! This project showcases my skills, experience, and projects as a developer/problem solver.
 
-👨‍🎓 An eye-catching developer Portfolio, Built on NextJS, GSAP, Tailwind and React
+### ✨ [Live Demo](https://es-portfolio-three.vercel.app)
 
-### ✨ [Live Demo](http://www.shubhporwal.me/)
+## About
 
-## Getting Started
+This portfolio project is built upon a modern, responsive template which I have customized to fit my personal style and showcase my skills. The template provided a solid foundation, allowing me to focus on adding my own projects, experiences, and content.
 
-In the project directory, you can run:
+It demonstrates my proficiency in **React**, **Next.js**, **Tailwind CSS** and serves as a professional presentation of my work.
 
-#### `yarn install`
+Feel free to explore the site to learn more about my skills and projects.
 
-#### `yarn dev`
 
-Runs the app in the development mode.\
-Open [`http://localhost:3000`](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-## Design
+- React / Next.js
+- Tailwind CSS / SCSS
+- JavaScript
+- Framer Motion (for animations)
+- Vercel (for deployment)
 
-You can always draw inspiration from the design, and no, you don't have to give me credits for that.
+---
 
-## Forking
+*This site is based on a template by Shubh Porwal [https://shubhporwal.me], customized and modified by Elvis Sylvano.*
 
-When people ask me whether they may use the code for their own website, I typically say yes as long as they provide proper attribution.
-
-Every time I learn that someone has duplicated my website without giving me credit, it saddens me. This version of my website took a significant amount of work to construct, and I'm pleased of it! All I ask is that you empathize with my situation and leave the footer unaltered.

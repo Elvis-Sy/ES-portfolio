@@ -107,7 +107,7 @@ const About1 = ({ clientHeight }) => {
               </h1>
 
               <div className="staggered-reveal pt-4 lg:self-auto self-center">
-                <Button href="" classes="link" type="primary">
+                <Button href="/resume/ES-Resume.pdf " classes="link" type="primary">
                   {t("download")}
                 </Button>
               </div>
