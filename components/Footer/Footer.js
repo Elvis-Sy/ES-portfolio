@@ -9,11 +9,11 @@ const Footer = () => {
 
   return (
     <footer
-      className="w-full relative select-none text-[#f1f5f9] bg-cover bg-[#1e5631]/90"
+      className="w-full relative select-none text-[#f1f5f9] bg-[#1e5631]/90"
     >
 
       <Fade bottom distance="2em">
-          <div className="section-container flex flex-col w-full h-full justify-end z-10 items-center py-12 space-y-12">
+          <div className="flex flex-col w-full h-full justify-end z-10 items-center py-12 space-y-12">
             <div className="flex flex-col md:flex-row md:justify-between gap-10 w-full">
               
               <div className="space-y-2 text-center md:text-left">
