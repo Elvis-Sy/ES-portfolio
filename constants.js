@@ -126,7 +126,7 @@ export const PROJECTS = [
     gradient: ["#2f4f4f", "#556b2f"],
     url: "https://elvissy.vercel.app/",
     git: "https://github.com/Elvis-Sy/ES-portfolio",
-    tech: ["typescript", "nextjs", "tailwindcss"],
+    tech: ["javascript", "react", "nextjs", "tailwindcss"],
   },
 
 ];
