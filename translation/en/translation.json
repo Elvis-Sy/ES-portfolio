@@ -66,5 +66,7 @@
   "error": "Error while sending",
   "success": "Message sent successfully",
   "footerIntro": "Versatile developer passionate about optimizing user interfaces and designing robust, automated infrastructures.",
-  "phone": "Phone"
+  "phone": "Phone",
+  "valideName": "Please enter a valid name (at least 2 characters).",
+  "valideEmail": "Please enter a valid email address."
 }

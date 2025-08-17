@@ -66,6 +66,8 @@
     "error": "Erreur lors de l'envoi",
     "success": "Message envoyé avec succès",
     "footerIntro": "Développeur polyvalent, passionné par l’optimisation des interfaces utilisateur et la conception d’infrastructures robustes et automatisées.",
-    "phone": "Numéro"
+    "phone": "Numéro",
+    "valideName": "Veuillez entrer un nom valide (au moins 2 caractères).",
+    "valideEmail": "Veuillez entrer une adresse email valide."
 }
   
