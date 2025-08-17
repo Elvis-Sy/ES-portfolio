@@ -106,7 +106,27 @@ export const PROJECTS = [
     gradient: ["#1e3a8a", "#3b0764"],
     url: "https://flot-maximal.vercel.app/",
     git: "https://github.com/Elvis-Sy/FlotMaximal",
-    tech: ["typescript", "react", "nextjs", "tailwindcss"],
+    tech: ["typescript", "react", "tailwindcss"],
+  },
+  {
+    name: "Leave Management",
+    image: "/projects/leaveManagement.jpeg",
+    blurImage: "/projects/blur/leaveManagement-blur.jpg",
+    description: "projectsDescription2",
+    gradient: ["#6e6e6e", "#4a4a4a"],
+    url: "",
+    git: "https://github.com/Elvis-Sy/leave-management",
+    tech: ["typescript", "nextjs", "tailwindcss", "nestjs", "mysql"],
+  },
+  {
+    name: "Portfolio",
+    image: "/projects/portfolio.jpeg",
+    blurImage: "/projects/blur/portfolio-blur.jpg",
+    description: "projectsDescription3",
+    gradient: ["#2f4f4f", "#556b2f"],
+    url: "https://elvissy.vercel.app/",
+    git: "https://github.com/Elvis-Sy/ES-portfolio",
+    tech: ["typescript", "nextjs", "tailwindcss"],
   },
 
 ];

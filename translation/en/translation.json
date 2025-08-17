@@ -26,6 +26,8 @@
   "github": "GitHub Link",
   "introProjects": "A glimpse of my projects, where passion, expertise, and a touch of ingenuity meet.",
   "projectsDescription1": "An app that helps with maximum flow problems ✍🏻",
+  "projectsDescription2": "Platform for managing and tracking employee leave 📝",
+  "projectsDescription3": "My personal portfolio 🌐",
   "myCareer": "Experience and Degrees",
   "introCareer": "From academic training to field experience, here are key milestones in my growth.",
   "experiences": "Experiences",
@@ -65,5 +67,7 @@
   "error": "Error while sending",
   "success": "Message sent successfully",
   "footerIntro": "Versatile developer passionate about optimizing user interfaces and designing robust, automated infrastructures.",
-  "phone": "Phone"
+  "phone": "Phone",
+  "valideName": "Please enter a valid name (at least 2 characters).",
+  "valideEmail": "Please enter a valid email address."
 }

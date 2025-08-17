@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo, forwardRef } from "react";
 import Image from "next/image";
 import VanillaTilt from "vanilla-tilt";
 import styles from "./ProjectTile.module.scss";
@@ -25,6 +25,31 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
     []
   );
 
+  const Wrapper = forwardRef(({ url, children, ...props }, ref) => {
+    if (url) {
+      return (
+        <a
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+          ref={ref}
+          {...props}
+        >
+          {children}
+        </a>
+      );
+    }
+    return (
+      <div ref={ref} {...props}>
+        {children}
+      </div>
+    );
+  });
+
+  // Ajoute cette ligne après la définition
+  Wrapper.displayName = "Wrapper";
+
+
   useEffect(() => {
     if (projectCard.current) {
       VanillaTilt.init(projectCard.current, options);
@@ -32,15 +57,13 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
   }, [options]);
 
   return (
-    <a
-      href={url}
-      className={`overflow-hidden rounded-3xl ${additionalClasses}`}
+    <Wrapper
+      url={url}
       ref={projectCard}
-      target="_blank"
-      rel="noreferrer"
+      className={`overflow-hidden rounded-3xl ${additionalClasses}`}
       style={{
         maxWidth: isDesktop ? "calc(100vw - 2rem)" : "calc(100vw - 4rem)",
-        flex: "0 0 auto", //changer en 1 0 auto avec 2 ou +2 projet
+        flex: "0 0 auto",
         WebkitMaskImage: "-webkit-radial-gradient(white, black)",
       }}
     >
@@ -106,7 +129,8 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
           style={{ transform: "translateZ(0.8rem)" }}
         >
           {t(description)}
-          <h3
+          <a
+            href={git}
             className="flex gap-2 text-sm items-center justify-center px-4 py-2 rounded-full bg-black/50 w-fit cursor-pointer transition duration-200 hover:bg-black/70 active:scale-95"
           >
             <Image
@@ -116,17 +140,17 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
               height={15}
               className="transition-transform duration-200 group-hover:scale-110"
             />
-            <a
-              href={git}
+            <p
+              
               className="text-white underline-offset-2 hover:underline transition-colors duration-200"
             >
               {t("github")}
-            </a>
-          </h3>
+            </p>
+          </a>
 
         </h2>
       </div>
-    </a>
+    </Wrapper>
   );
 };
 
