@@ -362,16 +362,6 @@ const Contact = () => {
               </label>
             </div>
           </Fade>
-
-          {/* {mailerResponse !== "not initiated" &&
-            (mailerResponse === "success" ? (
-              <div className="hidden">{success(t)}</div>
-            ) : mailerResponse === "empty" ? (
-              <div className="hidden">{empty(t)}</div>
-            ) : (
-              <div className="hidden">{error(t)}</div>
-            ))
-          } */}
         </form>
         <div className="mt-9 mx-auto link">
           <button

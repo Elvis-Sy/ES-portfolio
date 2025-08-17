@@ -46,6 +46,9 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
     );
   });
 
+  // Ajoute cette ligne après la définition
+  Wrapper.displayName = "Wrapper";
+
 
   useEffect(() => {
     if (projectCard.current) {
