@@ -123,7 +123,7 @@ export const PROJECTS = [
     image: "/projects/moodspace.jpeg",
     blurImage: "/projects/blur/moodspace-blur.jpg",
     description: "projectsDescription3",
-    gradient: ["#993399", "#663399"],
+    gradient: ["#99339980", "#663399"],
     url: "https://moodsspace.vercel.app/",
     git: "https://github.com/Elvis-Sy/MoodSpace",
     tech: ["react", "typescript", "tailwindcss"],
