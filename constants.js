@@ -119,14 +119,24 @@ export const PROJECTS = [
     tech: ["typescript", "nextjs", "tailwindcss", "nestjs", "mysql"],
   },
   {
+    name: "MoodSpace",
+    image: "/projects/moodspace.jpeg",
+    blurImage: "/projects/blur/moodspace-blur.jpg",
+    description: "projectsDescription3",
+    gradient: ["#993399", "#663399"],
+    url: "https://moodsspace.vercel.app/",
+    git: "https://github.com/Elvis-Sy/MoodSpace",
+    tech: ["react", "typescript", "tailwindcss"],
+  },
+  {
     name: "Portfolio",
     image: "/projects/portfolio.jpeg",
     blurImage: "/projects/blur/portfolio-blur.jpg",
-    description: "projectsDescription3",
+    description: "projectsDescription4",
     gradient: ["#2f4f4f", "#556b2f"],
     url: "https://elvissy.vercel.app/",
     git: "https://github.com/Elvis-Sy/ES-portfolio",
-    tech: ["javascript", "react", "nextjs", "tailwindcss"],
+    tech: ["javascript", "nextjs", "tailwindcss"],
   },
 
 ];
