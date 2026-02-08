@@ -22,9 +22,6 @@ const Projects = ({ isDesktop, clientHeight }) => {
         projectsScrollTrigger && projectsScrollTrigger.kill();
         projectsTimeline && projectsTimeline.kill();
       };
-    } else {
-      projectWrapper.style.width = "100%";
-      projectWrapper.style.overflowX = "visible";
     }
   
     const [revealTimeline, revealScrollTrigger] = getRevealSt();
